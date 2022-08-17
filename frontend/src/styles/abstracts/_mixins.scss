@@ -1,0 +1,11 @@
+@mixin screen-width-control($width) {
+    @media (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin screen-height-control($height) {
+    @media (max-height: $height) {
+        @content;
+    }
+}

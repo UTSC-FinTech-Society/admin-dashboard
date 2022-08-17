@@ -1,0 +1,92 @@
+.admin-card-container {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(200,200,200,.3);
+        border-radius: 25px;
+    }
+
+    .admin-card {
+        padding: 10px 10px 15px 10px;
+
+        &:hover {
+            transform: translateX(0.7vw);
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+    
+            .profile-pic-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    color: black;
+                    object-fit: cover;
+                }
+    
+            }
+    
+            .description-container {
+    
+                .name {
+                    color: black;
+                    margin: 7px auto 5px auto;
+                    font-weight: bold;
+                }
+    
+                .position {
+                    color: #969696;
+                    margin: 5px auto 7px auto;
+                    font-size: 14px;
+                }
+            }
+        }
+    
+        .status-container {
+            display: flex;
+            gap: 15px;
+    
+            .last-login {
+                color: black;
+                margin: 0;
+                font-size: 13px;
+            }
+    
+            .status {
+                display: flex;
+                align-items: center;
+                gap: 3px;
+    
+                .status-circle-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    height: 60%;
+    
+                    .status-circle {
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                    }
+                }
+                
+                p {
+                    margin: 0;
+                    font-size: 13px;
+                    font-weight: bold;
+                    letter-spacing: 0.5px;
+                }
+            }
+        }
+
+    }
+}

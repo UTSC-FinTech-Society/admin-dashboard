@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+  frontend:
+    image: fts-admin-dashboard-frontend
+    build: ./frontend
+    stdin_open: true
+    tty: true
+    ports:
+      -  4000:4000
+    volumes:
+      - ./frontend:/usr/src/app
+    networks:
+      - frontend-backend
+    depends_on:
+      - fts-admin-dashboard-backend
+  backend:
+    image: fts-admin-dashboard-backend
+    build: ./backend
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend:/usr/src/app
+    networks:
+      - frontend-backend
+      - backend-database
+  postgreSQL:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=test123
+      - POSTGRES_DB=testdb
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - backend-database
+      - database-adminer
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - database-adminer
+networks:
+  frontend-backend:
+    driver: bridge
+  backend-database:
+    driver: bridge
+  database-adminer:
+    driver: bridge

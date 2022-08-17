@@ -1,0 +1,117 @@
+.news-card-container {
+    display: flex;
+    max-height: 250px;
+    background-color: white;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    cursor: pointer;
+    border-radius: 15px;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    .picture-container {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        &:hover {
+
+            &::after, .edit-btn, .delete-btn { 
+                opacity: 1;
+            }
+
+        }
+
+        img {
+            width: 350px;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .edit-btn {
+            z-index: 5;
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .delete-btn {
+            z-index: 5;
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0 20px;
+        gap: 10px;
+
+        .title {
+            color: black;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+
+            p {
+                font-size: 14px;
+                color: black;
+            }
+        }
+
+        .meta-data-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .author {
+                color: black;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            .created_at {
+                color: black;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+    }
+}

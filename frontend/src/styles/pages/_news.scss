@@ -1,0 +1,5 @@
+.news-page-container {
+    display: flex;
+    @import '../components/navbar';
+    @import '../components/newssection';
+}

@@ -1,0 +1,77 @@
+.news-section-container {
+    height: 100vh;
+    flex: 1;
+
+    @import "../components/headerbar";
+
+    .news-section {
+        height: calc(100vh - 75px);
+        padding: 10px 50px 70px 50px;
+        background-color: $primary-font-color;
+        position: relative;
+        overflow-y: auto;
+
+        .news-text-container {
+
+            h1 {
+                margin-bottom: 10px;
+                font-size: 30px;
+                color: black;
+            }
+            
+            h3 {
+                color: #969696;
+                margin-top: 5px;
+                font-size: 18px;
+            }
+        }
+
+        .add-news-btn {
+            margin: 40px auto;
+            background-color: $secondary-bg-color;
+            color: $primary-font-color;
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            transition: transform 0.35s ease-out, background-color 0.1s ease-in;
+
+            &:hover {
+                transform: scale(105%);
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+
+        @import './modalform';
+
+        @import './loading';
+
+        .news-list-container {
+            margin-bottom: 60px;
+            width: 100%;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            position: relative;
+
+            @import './newscard';
+
+            .no-news-text {
+                position: absolute;
+                top: 50%;
+                text-align: center;
+                width: 100%;
+                color: black;
+                font-size: 22px;
+            }
+        }
+
+        @import './modal';
+    }
+}

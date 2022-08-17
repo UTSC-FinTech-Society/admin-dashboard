@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import './abstracts/variables';
+@import './abstracts/mixins';
+@import './base/reset';
+
+body {
+    font-family: 'Raleway', sans-serif;
+    color: $primary-font-color;
+    overflow-y: hidden;
+}
+
+.container {
+    position: relative;
+    overflow: hidden;
+    min-width: 100vw;
+    min-height: 100vh;
+
+    @import './components/loading';
+    @import './pages/login';
+    @import './pages/home';
+    @import './pages/members';
+    @import './pages/events';
+    @import './pages/eventdetails';
+    @import './pages/news';
+    @import './pages/newsdetails';
+    @import './pages/editprofile';
+}

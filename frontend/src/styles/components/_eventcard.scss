@@ -1,0 +1,96 @@
+.event-card-container {
+    width: 310px;
+    height: 380px;
+    background-color: white;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    cursor: pointer;
+    border-radius: 15px;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+    
+    .poster-container {
+        width: 100%;
+        height: 180px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        &:hover {
+
+            &::after, .edit-btn, .delete-btn { 
+                opacity: 1;
+            }
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .edit-btn {
+            z-index: 5;
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .delete-btn {
+            z-index: 5;
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .description-container {
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .name {
+            text-align: center;
+            color: black;
+            margin: 0 auto;
+        }
+
+        .details-container {
+
+            p {
+                color: black;
+                font-size: 13px;
+                margin: 10px auto;
+            }
+        }
+    }
+}

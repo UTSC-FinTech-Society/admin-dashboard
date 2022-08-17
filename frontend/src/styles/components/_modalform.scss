@@ -1,0 +1,117 @@
+.modal-form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .2);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    .modal-form {
+        background-color: white;
+        width: 50%;
+
+        .description-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+
+            h3 {
+                color: black;
+                margin: 0;
+            }
+        }
+
+        form {
+            border-top: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            height: 40vh;
+            overflow-y: scroll;
+
+            .input-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                color: black;
+
+                label {
+
+                    span {
+                        color: red;
+                        font-size: 17px;
+                    }
+
+                }
+
+                input {
+                    height: 40px;
+                    padding: 0 10px;
+                    border: 1px solid lightgray;
+                    border-radius: 3px;
+                }
+
+                input[type='file'] {
+                    padding: 10px;
+                }
+
+                select {
+                    height: 40px;
+                    padding: 0 10px;
+                    border: 1px solid lightgray;
+                    border-radius: 3px;
+                }
+
+                .description-wrapper {
+                    padding: 10px;
+                    border: 1px solid lightgray;
+                    height: 400px;
+                }
+
+                .description-editor {
+                    color: black;
+                    height: 295px;
+                    overflow: auto;
+                }
+
+                .description-toolbar {
+                    border: 1px solid lightgray;
+                    color: black;
+                }
+            }
+        }
+
+        .button-container {
+            padding: 15px 40px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+            button {
+                border: none;
+                background-color: $primary-bg-color;
+                color: $primary-font-color;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: transform 0.35s ease-out, background-color 0.1s ease-in;
+
+                &:hover {
+                    background-color: #061260;
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+        }
+    }
+}
