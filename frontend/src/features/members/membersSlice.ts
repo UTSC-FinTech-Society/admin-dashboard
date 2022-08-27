@@ -67,8 +67,8 @@ const membersSlice = createSlice({
         },
         [getMembers.fulfilled.toString()]: (state: MembersState, action: PayloadAction<MemberType[]>) => {
             state.membersList = action.payload.map(member => ({ ...member, editMode: false, submitUpdatedInfoMode: false })).sort((a, b) => {
-                if (a.timestamp > b.timestamp) return -1;
-                if (a.timestamp < b.timestamp) return 1;
+                if (a.member_id > b.member_id) return -1;
+                if (a.member_id < b.member_id) return 1;
                 return 0;
             });;
             state.isLoading = false;
@@ -79,7 +79,11 @@ const membersSlice = createSlice({
         },
         [addNewMember.fulfilled.toString()]: (state: MembersState, action: PayloadAction<{message: string, member: MemberType}>) => {
             toast.success(action.payload.message, { autoClose: 3000 });
-            state.membersList = [...state.membersList, { ...action.payload.member, editMode: false, submitUpdatedInfoMode: false } ];
+            state.membersList = [...state.membersList, { ...action.payload.member, editMode: false, submitUpdatedInfoMode: false } ].sort((a, b) => {
+                if (a.member_id > b.member_id) return -1;
+                if (a.member_id < b.member_id) return 1;
+                return 0;
+            });
         },
         [addNewMember.rejected.toString()]: (state: MembersState, action: PayloadAction<string>) => {
             toast.error(action.payload, { autoClose: 3000 });

@@ -15,7 +15,7 @@ const addNewMember = asyncHandler(async (req: express.Request, res: express.Resp
         sendError(400, 'Please provide all necessary fields', next);
     }
 
-    const newMember = await Member.create({ first_name, last_name, student_number, email_address, year_of_study, program, campus });
+    const newMember = await Member.create({ first_name, last_name, student_number, email_address, year_of_study, program, campus, timestamp: new Date() });
     res.status(201).json({ success: true, message: 'A new member has been successfully added', member: newMember });
 });
 

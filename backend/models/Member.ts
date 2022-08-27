@@ -69,8 +69,7 @@ Member.init({
     },
     timestamp: {
         type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: new Date()
+        allowNull: false
     }
 }, {
     sequelize,

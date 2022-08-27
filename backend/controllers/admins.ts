@@ -27,7 +27,7 @@ const getMe = asyncHandler(async (req: express.Request, res: express.Response) =
 });
 
 const getAdmins = asyncHandler(async (req: express.Request, res: express.Response) => {
-    const admins = await Admin.findAll();
+    const admins = await Admin.findAll({ attributes: { exclude: ['password'] } });
     res.status(200).json({ success: true, admins: admins });
 });
 
