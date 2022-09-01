@@ -1,6 +1,11 @@
 .home-section-container {
     height: 100vh;
     flex: 1;
+    width: calc(100vw - 300px);
+
+    @include screen-width-control(400px) {
+        width: 100vw;
+    }
 
     @import '../components/headerbar';
 
@@ -31,9 +36,14 @@
             flex-direction: column;
             gap: 20px;
 
+            @include screen-width-control(400px) {
+                margin-bottom: 40px;
+            }
+
             .stats-panels-container {
                 display: flex;
                 gap: 20px;
+                flex-wrap: wrap;
 
                 .new-member-stats-container {
                     width: 300px;
@@ -273,6 +283,10 @@
                 gap: 20px;
                 box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
 
+                @include screen-width-control(400px) {
+                    width: 275px;
+                }
+
                 .description {
                     color: black;
                     margin: 0;
@@ -290,6 +304,10 @@
                     flex-direction: column;
                     gap: 5px;
                     position: relative;
+
+                    @include screen-width-control(400px) {
+                        padding: 10px 30px 20px 30px;
+                    }
 
                     @import './loading';
 

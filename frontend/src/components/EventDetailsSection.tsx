@@ -16,7 +16,7 @@ import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import DOMPurify from "dompurify";
  
-const EventDetailsSection = () => {
+const EventDetailsSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const event_id = Number(useParams().event_id);
     const { eventsList, isLoading } = useSelector((state: RootState) => state.events);
 
@@ -160,7 +160,7 @@ const EventDetailsSection = () => {
 
     return (
         <div className="event-details-section-container">
-            <HeaderBar />
+            <HeaderBar setOpenMenuState={setOpenMenuState} />
             <section className="event-details-section">
                 {updateEventStatus ? <button className='back-btn' onClick={() => {
                     const eventExist = eventsList.find(event => event.event_id === event_id);

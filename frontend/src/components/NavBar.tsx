@@ -6,7 +6,7 @@ import { FaUserCircle, FaHome, FaUsers, FaCalendarAlt, FaPoll, FaPowerOff } from
 import { AppDispatch, RootState } from '../store';
 import { logoutAdmin } from '../features/admin/adminSlice';
 
-const NavBar = () => {
+const NavBar = ({ openMenuState, setOpenMenuState }: { openMenuState: boolean, setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -85,48 +85,101 @@ const NavBar = () => {
     }, [path, prevPath]);
 
     return (
-        <nav className='nav-bar-container'>
-            <img src={Logo} alt="FTS Logo" className='logo' />
-            <div className="profile-container">
-                <div className="profile-pic-container">
-                    {admin.profile_pic_data ? <img src={`data:${admin.profile_pic_type};base64, ${admin.profile_pic_data}`} alt={`${admin.name} Profile Pic`} /> : <FaUserCircle size='100px' color='#f1f1f1' />}
-                </div>
-                <div className="profile-description">
-                    <p className='name'>{admin.name}</p>
-                    <p className='position'>{admin.position}</p>
-                </div>
-            </div>
-            <div className="nav-btn-container">
-                <div ref={homeBtnRef} className="nav-btn home" onClick={() => navigate('/dashboard/home')} >
-                    <FaHome color={logoColorList[0]} size='20px' />
-                    <h3>Home</h3>
-                </div>
-                <div ref={membersBtnRef} className="nav-btn members" onClick={() => navigate('/dashboard/members')} >
-                    <FaUsers color={logoColorList[1]} size='20px' />
-                    <h3>Members</h3>
-                </div>
-                <div ref={eventsBtnRef} className="nav-btn events" onClick={() => navigate('/dashboard/events')} >
-                    <FaCalendarAlt color={logoColorList[2]} size='20px' />
-                    <h3>Events</h3>
-                </div>
-                <div ref={newsBtnRef} className="nav-btn news" onClick={() => navigate('/dashboard/news')} >
-                    <FaPoll color={logoColorList[3]} size='20px' />
-                    <h3>News</h3>
-                </div>
-                <div ref={logoutBtnRef} className="nav-btn logout" onClick={() => {
-                    homeBtnRef.current?.classList.remove('select');
-                    membersBtnRef.current?.classList.remove('select');
-                    eventsBtnRef.current?.classList.remove('select');
-                    newsBtnRef.current?.classList.remove('select');
-                    logoutBtnRef.current?.classList.add('select');
-                    setLogoColorList(['#f1f1f1', '#f1f1f1', '#f1f1f1', '#f1f1f1', '#98dfeb']);
-                    dispatch(logoutAdmin(admin.admin_id));
-                }}>
-                    <FaPowerOff color={logoColorList[4]} size='20px' />
-                    <h3>Logout</h3>
-                </div>
-            </div>
-        </nav>
+        <>
+            {!openMenuState ? (
+                <nav className='nav-bar-container'>
+                    <div className="header-container">
+                        <img src={Logo} alt="FTS Logo" className='logo' />
+                        <div className="close-menu-btn"></div>
+                    </div>
+                    <div className="profile-container">
+                        <div className="profile-pic-container">
+                            {admin.profile_pic_data ? <img src={`data:${admin.profile_pic_type};base64, ${admin.profile_pic_data}`} alt={`${admin.name} Profile Pic`} /> : <FaUserCircle size='100px' color='#f1f1f1' />}
+                        </div>
+                        <div className="profile-description">
+                            <p className='name'>{admin.name}</p>
+                            <p className='position'>{admin.position}</p>
+                        </div>
+                    </div>
+                    <div className="nav-btn-container">
+                        <div ref={homeBtnRef} className="nav-btn home" onClick={() => navigate('/dashboard/home')} >
+                            <FaHome color={logoColorList[0]} size='20px' />
+                            <h3>Home</h3>
+                        </div>
+                        <div ref={membersBtnRef} className="nav-btn members" onClick={() => navigate('/dashboard/members')} >
+                            <FaUsers color={logoColorList[1]} size='20px' />
+                            <h3>Members</h3>
+                        </div>
+                        <div ref={eventsBtnRef} className="nav-btn events" onClick={() => navigate('/dashboard/events')} >
+                            <FaCalendarAlt color={logoColorList[2]} size='20px' />
+                            <h3>Events</h3>
+                        </div>
+                        <div ref={newsBtnRef} className="nav-btn news" onClick={() => navigate('/dashboard/news')} >
+                            <FaPoll color={logoColorList[3]} size='20px' />
+                            <h3>News</h3>
+                        </div>
+                        <div ref={logoutBtnRef} className="nav-btn logout" onClick={() => {
+                            homeBtnRef.current?.classList.remove('select');
+                            membersBtnRef.current?.classList.remove('select');
+                            eventsBtnRef.current?.classList.remove('select');
+                            newsBtnRef.current?.classList.remove('select');
+                            logoutBtnRef.current?.classList.add('select');
+                            setLogoColorList(['#f1f1f1', '#f1f1f1', '#f1f1f1', '#f1f1f1', '#98dfeb']);
+                            dispatch(logoutAdmin(admin.admin_id));
+                        }}>
+                            <FaPowerOff color={logoColorList[4]} size='20px' />
+                            <h3>Logout</h3>
+                        </div>
+                    </div>
+                </nav>
+            ) : (
+                <nav className='nav-bar-container open-menu'>
+                    <div className="header-container">
+                        <img src={Logo} alt="FTS Logo" className='logo' />
+                        <div className="close-menu-btn" onClick={() => setOpenMenuState(false)} ></div>
+                    </div>
+                    <div className="profile-container">
+                        <div className="profile-pic-container">
+                            {admin.profile_pic_data ? <img src={`data:${admin.profile_pic_type};base64, ${admin.profile_pic_data}`} alt={`${admin.name} Profile Pic`} /> : <FaUserCircle size='100px' color='#f1f1f1' />}
+                        </div>
+                        <div className="profile-description">
+                            <p className='name'>{admin.name}</p>
+                            <p className='position'>{admin.position}</p>
+                        </div>
+                    </div>
+                    <div className="nav-btn-container">
+                        <div ref={homeBtnRef} className="nav-btn home" onClick={() => navigate('/dashboard/home')} >
+                            <FaHome color={logoColorList[0]} size='20px' />
+                            <h3>Home</h3>
+                        </div>
+                        <div ref={membersBtnRef} className="nav-btn members" onClick={() => navigate('/dashboard/members')} >
+                            <FaUsers color={logoColorList[1]} size='20px' />
+                            <h3>Members</h3>
+                        </div>
+                        <div ref={eventsBtnRef} className="nav-btn events" onClick={() => navigate('/dashboard/events')} >
+                            <FaCalendarAlt color={logoColorList[2]} size='20px' />
+                            <h3>Events</h3>
+                        </div>
+                        <div ref={newsBtnRef} className="nav-btn news" onClick={() => navigate('/dashboard/news')} >
+                            <FaPoll color={logoColorList[3]} size='20px' />
+                            <h3>News</h3>
+                        </div>
+                        <div ref={logoutBtnRef} className="nav-btn logout" onClick={() => {
+                            homeBtnRef.current?.classList.remove('select');
+                            membersBtnRef.current?.classList.remove('select');
+                            eventsBtnRef.current?.classList.remove('select');
+                            newsBtnRef.current?.classList.remove('select');
+                            logoutBtnRef.current?.classList.add('select');
+                            setLogoColorList(['#f1f1f1', '#f1f1f1', '#f1f1f1', '#f1f1f1', '#98dfeb']);
+                            dispatch(logoutAdmin(admin.admin_id));
+                        }}>
+                            <FaPowerOff color={logoColorList[4]} size='20px' />
+                            <h3>Logout</h3>
+                        </div>
+                    </div>
+                </nav>
+            )}
+        </>
     )
 };
 

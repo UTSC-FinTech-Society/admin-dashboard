@@ -6,7 +6,7 @@ import { RootState } from '../store';
 import { AiFillCaretDown } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
-const HeaderBar = () => {
+const HeaderBar = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const admin = useSelector((state: RootState) => state.admin.me);
 
     const dropdownMenuRef = useRef<HTMLDivElement>(null);
@@ -26,6 +26,7 @@ const HeaderBar = () => {
 
     return (
         <header className='header-bar-container'>
+            <div className="mobile-menu-btn" onClick={() => setOpenMenuState(true)} ></div>
             <div className="profile-container">
                 {admin.profile_pic_data? <img src={`data:${admin.profile_pic_type};base64, ${admin.profile_pic_data}`} alt={`${admin.name} Profile Pic`} /> : <FaUserCircle size='35px' color='#f1f1f1' />}
                 <p className='name'>{admin.username}</p>

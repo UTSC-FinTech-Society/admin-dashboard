@@ -15,6 +15,10 @@
         background-color: white;
         width: 40%;
 
+        @include screen-width-control(400px) {
+            width: 80%;
+        }
+
         .title-container {
             padding: 15px 20px;
 

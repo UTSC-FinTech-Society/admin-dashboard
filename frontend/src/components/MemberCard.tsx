@@ -55,50 +55,54 @@ const MemberCard = ({ member_id, first_name, last_name, student_number, email_ad
         <tr className='member-card-container'>
             {!member!.editMode ? (
                 <>
-                    <td><MdEdit color='black' size='15px' onClick={() => dispatch(updateEditMode({ member_id, status: true }))} /></td>
-                    <td>{first_name}</td>
-                    <td>{last_name}</td>
-                    <td>{student_number}</td>
-                    <td>{email_address}</td>
-                    <td>{year_of_study}</td>
-                    <td>{program}</td>
-                    <td>{campus}</td>
-                    <td><MdDelete color='red' size='20px' onClick={() => {
+                    <td><div className='cell-container'><MdEdit color='black' size='15px' onClick={() => dispatch(updateEditMode({ member_id, status: true }))} /></div></td>
+                    <td><div className='cell-container'>{first_name}</div></td>
+                    <td><div className='cell-container'>{last_name}</div></td>
+                    <td><div className='cell-container'>{student_number}</div></td>
+                    <td><div className='cell-container'>{email_address}</div></td>
+                    <td><div className='cell-container'>{year_of_study}</div></td>
+                    <td><div className='cell-container'>{program}</div></td>
+                    <td><div className='cell-container'>{campus}</div></td>
+                    <td><div className='cell-container'><MdDelete color='red' size='20px' onClick={() => {
                         openDeleteModal(true);
                         setDeleteMemberId(member_id);
-                    }} /></td>
+                    }} /></div></td>
                 </>
             ) : (
                 <>
-                    <td><MdCheck color='#0275d8' size='20px' onClick={() => {
+                    <td><div className='cell-container'><MdCheck color='#0275d8' size='20px' onClick={() => {
                         setUpdateMemberId(member_id);
                         openUpdateModal(true);
-                    }} /></td>
-                    <td><input type="text" name="first_name" id="first_name" value={editInfoData.first_name} onChange={onChange} autoComplete='off' required/></td>
-                    <td><input type="text" name="last_name" id="last_name" value={editInfoData.last_name} onChange={onChange} autoComplete='off' required/></td>
-                    <td><input type="number" name="student_number" id="student_number" value={editInfoData.student_number} onChange={onChange} autoComplete='off' required/></td>
-                    <td><input type="email" name="email_address" id="email_address" value={editInfoData.email_address} onChange={onChange} autoComplete='off' required/></td>
+                    }} /></div></td>
+                    <td><div className='cell-container'><input type="text" name="first_name" id="first_name" value={editInfoData.first_name} onChange={onChange} autoComplete='off' required/></div></td>
+                    <td><div className='cell-container'><input type="text" name="last_name" id="last_name" value={editInfoData.last_name} onChange={onChange} autoComplete='off' required/></div></td>
+                    <td><div className='cell-container'><input type="number" name="student_number" id="student_number" value={editInfoData.student_number} onChange={onChange} autoComplete='off' required/></div></td>
+                    <td><div className='cell-container'><input type="email" name="email_address" id="email_address" value={editInfoData.email_address} onChange={onChange} autoComplete='off' required/></div></td>
                     <td>
-                        <select name='year_of_study' id='year_of_study' value={editInfoData.year_of_study} onChange={onChange} autoComplete='off' required>
-                            <option value="1st">1st</option>
-                            <option value="2nd">2nd</option>
-                            <option value="3rd">3rd</option>
-                            <option value="4th">4th</option>
-                            <option value="5th">5th</option>
-                        </select>
+                        <div className='cell-container'>
+                            <select name='year_of_study' id='year_of_study' value={editInfoData.year_of_study} onChange={onChange} autoComplete='off' required>
+                                <option value="1st">1st</option>
+                                <option value="2nd">2nd</option>
+                                <option value="3rd">3rd</option>
+                                <option value="4th">4th</option>
+                                <option value="5th">5th</option>
+                            </select>
+                        </div>
                     </td>
-                    <td><input type="text" name="program" id="program" value={editInfoData.program} onChange={onChange} autoComplete='off' required/></td>
+                    <td><div className='cell-container'><input type="text" name="program" id="program" value={editInfoData.program} onChange={onChange} autoComplete='off' required/></div></td>
                     <td>
-                        <select name='campus' id='campus' value={editInfoData.campus} onChange={onChange} autoComplete='off' required>
-                            <option value="UTSC">UTSC</option>
-                            <option value="UTSG">UTSG</option>
-                            <option value="UTM">UTM</option>
-                        </select>
+                        <div className='cell-container'>
+                            <select name='campus' id='campus' value={editInfoData.campus} onChange={onChange} autoComplete='off' required>
+                                <option value="UTSC">UTSC</option>
+                                <option value="UTSG">UTSG</option>
+                                <option value="UTM">UTM</option>
+                            </select>
+                        </div>
                     </td>
-                    <td><MdDelete color='red' size='20px' onClick={() => {
+                    <td><div className='cell-container'><MdDelete color='red' size='20px' onClick={() => {
                         openDeleteModal(true);
                         setDeleteMemberId(member_id);
-                    }} /></td>
+                    }} /></div></td>
                 </>
             )}
         </tr>

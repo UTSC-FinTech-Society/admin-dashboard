@@ -1,6 +1,11 @@
 .events-section-container {
     height: 100vh;
     flex: 1;
+    width: calc(100vw - 300px);
+
+    @include screen-width-control(400px) {
+        width: 100vw;
+    }
 
     @import "../components/headerbar";
 
@@ -38,6 +43,10 @@
             box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
             transition: transform 0.35s ease-out, background-color 0.1s ease-in;
 
+            @include screen-width-control(400px) {
+                margin: 10px auto 40px auto;
+            }
+
             &:hover {
                 transform: scale(105%);
             }
@@ -55,9 +64,9 @@
             margin-bottom: 60px;
             width: 100%;
             min-height: 40vh;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px 45px;
 
             @import "./eventcard";
 

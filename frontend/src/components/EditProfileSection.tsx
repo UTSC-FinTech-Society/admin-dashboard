@@ -6,7 +6,7 @@ import Loading from './Loading';
 import { toast } from 'react-toastify';
 import { updateMe } from '../features/admin/adminSlice';
 
-const EditProfileSection = () => {
+const EditProfileSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const admin = useSelector((state: RootState) => state.admin);
 
     const dispatch = useDispatch<AppDispatch>();
@@ -50,7 +50,7 @@ const EditProfileSection = () => {
 
     return (
         <div className="edit-profile-section-container">
-            <HeaderBar />
+            <HeaderBar setOpenMenuState={setOpenMenuState} />
             <section className="edit-profile-section">
                 <div className="edit-profile-form-container">
                     <h1 className='title'>Edit Profile</h1>

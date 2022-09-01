@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import EditProfileSection from '../components/EditProfileSection';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +11,8 @@ const EditProfile = () => {
 
     const admin = useSelector((state: RootState) => state.admin);
 
+    const [openMenuState, setOpenMenuState] = useState(false);
+
     useEffect(() => {
         if (!admin.me.admin_id) dispatch(getMe());
     }, []);
@@ -21,8 +23,8 @@ const EditProfile = () => {
 
     return (
         <div className="edit-profile-page-container">
-            <NavBar />
-            <EditProfileSection />
+            <NavBar openMenuState={openMenuState} setOpenMenuState={setOpenMenuState} />
+            <EditProfileSection setOpenMenuState={setOpenMenuState} />
         </div>
     )
 };

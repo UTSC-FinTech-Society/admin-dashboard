@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import NewsDetailsSection from '../components/NewsDetailsSection';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +11,8 @@ const NewsDetails = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const state = useSelector((state: RootState) => state);
+
+    const [openMenuState, setOpenMenuState] = useState(false);
 
     useEffect(() => {
         if (!state.admin.me.admin_id) dispatch(getMe());
@@ -32,8 +34,8 @@ const NewsDetails = () => {
 
     return (
         <div className="news-details-page-container">
-            <NavBar />
-            <NewsDetailsSection />
+            <NavBar openMenuState={openMenuState} setOpenMenuState={setOpenMenuState} />
+            <NewsDetailsSection setOpenMenuState={setOpenMenuState} />
         </div>
     )
 };

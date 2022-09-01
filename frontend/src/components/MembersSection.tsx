@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addNewMember, deleteMember, updateEditMode, updateSubmitUpdatedInfoMode } from '../features/members/membersSlice';
 import { RootState, AppDispatch } from '../store';
@@ -9,7 +9,7 @@ import ModalForm from './ModalForm';
 import { toast } from 'react-toastify';
 import Modal from './Modal';
 
-const MembersSection = () => {
+const MembersSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const { membersList, isLoading } = useSelector((state: RootState) => state.members);
 
     const dispatch = useDispatch<AppDispatch>();
@@ -63,7 +63,7 @@ const MembersSection = () => {
 
     return (
         <div className='members-section-container'>
-            <HeaderBar />
+            <HeaderBar setOpenMenuState={setOpenMenuState} />
             <section className='members-section'>
                 <div className="members-text-container">
                     <h1>Members</h1>
@@ -117,19 +117,21 @@ const MembersSection = () => {
                 {isLoading ? <Loading border='7px' size='50px' color='#040C43' /> : null}
                 <div className="members-list-table-container">
                     <table className='members-list-table'>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Student Number</th>
-                                <th>Email Address</th>
-                                <th>Year of Study</th>
-                                <th>Program</th>
-                                <th>Campus</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                        <div className="row-container">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Student Number</th>
+                                    <th>Email Address</th>
+                                    <th>Year of Study</th>
+                                    <th>Program</th>
+                                    <th>Campus</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </div>
                         {!isLoading && membersList? <tbody>{membersList.map(member => <MemberCard key={member.member_id} openUpdateModal={setUpdateMemberStatus} setUpdateMemberId={setUpdateMemberId} openDeleteModal={setDeleteMemberStatus} setDeleteMemberId={setDeleteMemberId} {...member} />)}</tbody> : null}
                     </table>
                 </div>

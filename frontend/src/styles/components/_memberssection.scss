@@ -1,6 +1,11 @@
 .members-section-container {
     height: 100vh;
     flex: 1;
+    width: calc(100vw - 300px);
+
+    @include screen-width-control(400px) {
+        width: 100vw;
+    }
 
     @import "../components/headerbar";
 
@@ -9,6 +14,7 @@
         padding: 10px 50px;
         background-color: $primary-font-color;
         position: relative;
+        overflow-y: auto;
 
         .members-text-container {
 
@@ -38,6 +44,10 @@
             box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
             transition: transform 0.35s ease-out, background-color 0.1s ease-in;
 
+            @include screen-width-control(400px) {
+                margin-top: 10px;
+            }
+
             &:hover {
                 transform: scale(105%);
             }
@@ -52,43 +62,53 @@
         @import './loading';
 
         .members-list-table-container {
+            margin-bottom: 60px;
 
             .members-list-table {
                 border-collapse: collapse;
-                width: 100%;
                 display: block;
-                max-height: 60vh;
-                overflow-y: scroll;  
                 background-color: white;
                 border-radius: 15px;
                 table-layout: fixed;
                 box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
 
-                &::-webkit-scrollbar {
-                    display: none;
-                }
-
-                thead {
-                    display: table;
+                .row-container {
+                    overflow-x: auto;
                     width: 100%;
 
-                    tr {
-    
-                        th {
-                            color: black;
-                            font-size: 14px;
-                            padding: 15px 30px 15px 10px;
-                            border-bottom: 2px solid black;
-                            text-align: left;
-                        }
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    thead {
+                        display: table;
+                        width: 100%;
         
+                        tr {
+        
+                            th {
+                                color: black;
+                                font-size: 14px;
+                                padding: 15px 30px 15px 10px;
+                                border-bottom: 2px solid black;
+                                text-align: center;
+                                white-space: nowrap;
+                            }
+            
+                        }
                     }
                 }
 
                 tbody {
-                    display: table;
+                    display: block;    
                     width: 100%;
+                    max-height: 54vh;
+                    overflow: auto;
                     @import './membercard';
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
                 }
 
             }

@@ -12,7 +12,7 @@ import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from 'draftjs-to-html';
 
-const EventsSection = () => {
+const EventsSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const { eventsList, isLoading } = useSelector((state: RootState) => state.events);
 
     const dispatch = useDispatch<AppDispatch>();
@@ -77,7 +77,7 @@ const EventsSection = () => {
 
     return (
         <div className='events-section-container'>
-            <HeaderBar />
+            <HeaderBar setOpenMenuState={setOpenMenuState} />
             <section className='events-section'>
                 <div className="events-text-container">
                     <h1>Events</h1>

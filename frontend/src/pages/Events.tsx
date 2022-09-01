@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import EventsSection from '../components/EventsSection';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +11,8 @@ const Events = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const state = useSelector((state: RootState) => state);
+
+    const [openMenuState, setOpenMenuState] = useState(false);
 
     useEffect(() => {
         if (!state.admin.me.admin_id) dispatch(getMe());
@@ -28,8 +30,8 @@ const Events = () => {
 
     return (
         <div className="events-page-container">
-            <NavBar />
-            <EventsSection />
+            <NavBar openMenuState={openMenuState} setOpenMenuState={setOpenMenuState} />
+            <EventsSection setOpenMenuState={setOpenMenuState} />
         </div>
     );
 };

@@ -1,6 +1,11 @@
 .event-details-section-container {
     height: 100vh;
     flex: 1;
+    width: calc(100vw - 300px);
+
+    @include screen-width-control(400px) {
+        width: 100vw;
+    }
 
     @import "../components/headerbar";
 
@@ -63,10 +68,20 @@
             gap: 40px;
             margin-top: 60px;
 
+            @include screen-width-control(400px) {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .poster-container {
                 width: 400px;
                 height: 400px;
                 position: relative;
+                
+                @include screen-width-control(400px) {
+                    width: 90vw;
+                    height: 90vw;
+                }
     
                 .poster {
                     width: 100%;
@@ -128,6 +143,11 @@
                 flex: 6;
                 position: relative;
                 top: -90px;
+
+                @include screen-width-control(400px) {
+                    top: 0;
+                    gap: 0;
+                }
 
                 .name {
                     color: black;

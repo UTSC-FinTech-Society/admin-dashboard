@@ -15,6 +15,10 @@
         background-color: white;
         width: 50%;
 
+        @include screen-width-control(400px) {
+            width: 85%;
+        }
+
         .description-container {
             display: flex;
             justify-content: space-between;
@@ -74,12 +78,21 @@
                     padding: 10px;
                     border: 1px solid lightgray;
                     height: 400px;
+
+                    @include screen-width-control(400px) {
+                        padding: 0;
+                    }
                 }
 
                 .description-editor {
                     color: black;
                     height: 295px;
                     overflow: auto;
+                    
+                    @include screen-width-control(400px) {
+                        padding: 0 10px;
+                        height: 230px;
+                    }
                 }
 
                 .description-toolbar {

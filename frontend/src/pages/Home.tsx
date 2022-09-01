@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import HomeSection from '../components/HomeSection';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,8 @@ const Home = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const state = useSelector((state: RootState) => state);
+
+    const [openMenuState, setOpenMenuState] = useState(false);
 
     useEffect(() => {
         if (!state.admin.me.admin_id) dispatch(getMe());
@@ -33,8 +35,8 @@ const Home = () => {
 
     return (
         <div className="home-page-container">
-            <NavBar />
-            <HomeSection />
+            <NavBar openMenuState={openMenuState} setOpenMenuState={setOpenMenuState} />
+            <HomeSection setOpenMenuState={setOpenMenuState}/>
         </div>
     )
 };

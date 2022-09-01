@@ -7,6 +7,46 @@
     padding: 0 60px;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 
+    @include screen-width-control(400px) {
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+
+    .mobile-menu-btn {
+        position: relative;
+        width: 25px;
+        height: 3px;
+        display: none;
+        background-color: $primary-font-color;
+        transition: all 0.5s ease-in-out;
+
+        @include screen-width-control(400px) {
+            display: block;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 3px;
+            background-color: $primary-font-color;
+            left: 0;
+            top: -7px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 3px;
+            background-color: $primary-font-color;
+            right: 0;
+            bottom: -7px;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
     .profile-container {
         display: flex;
         align-items: center;

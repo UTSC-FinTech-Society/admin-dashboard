@@ -17,6 +17,14 @@
         gap: 40px;
         border-radius: 10px;
 
+        @include screen-width-control(530px) {
+            width: 80%;
+        }
+
+        @include screen-width-control(450px) {
+            width: 90%;
+        }
+
         .logo {
             width: 200px;
         }

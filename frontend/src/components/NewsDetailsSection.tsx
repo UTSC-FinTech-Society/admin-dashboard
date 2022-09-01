@@ -16,7 +16,7 @@ import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import DOMPurify from "dompurify";
 
-const NewsDetailsSection = () => {
+const NewsDetailsSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const news_id = Number(useParams().news_id);
     const { newsList, isLoading } = useSelector((state: RootState) => state.news);
 
@@ -115,7 +115,7 @@ const NewsDetailsSection = () => {
 
     return (
         <div className="news-details-section-container">
-            <HeaderBar />
+            <HeaderBar setOpenMenuState={setOpenMenuState} />
             <section className="news-details-section">
                 <div className="news-details-card-container">
                     {updateNewsStatus ? <button className='back-btn' onClick={async () => {

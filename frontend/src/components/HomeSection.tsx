@@ -12,7 +12,7 @@ import { MemberType } from '../features/members/membersSlice';
 import { EventType } from '../features/events/eventsSlice';
 import { NewsType } from '../features/news/newsSlice';
 
-const HomeSection = () => {
+const HomeSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const admin = useSelector((state: RootState) => state.admin);
     const members = useSelector((state: RootState) => state.members);
     const events = useSelector((state: RootState) => state.events);
@@ -59,7 +59,7 @@ const HomeSection = () => {
 
     return (
         <div className='home-section-container'>
-            <HeaderBar />
+            <HeaderBar setOpenMenuState={setOpenMenuState} />
             <section className='home-section'>
                 <div className="welcome-text-container">
                     <h1>Hello, {admin.me.name?.split(' ')[0]}</h1>
