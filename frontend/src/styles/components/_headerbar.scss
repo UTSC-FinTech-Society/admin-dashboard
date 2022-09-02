@@ -7,7 +7,7 @@
     padding: 0 60px;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 
-    @include screen-width-control(400px) {
+    @include screen-width-control(600px) {
         justify-content: space-between;
         padding: 0 30px;
     }
@@ -20,7 +20,7 @@
         background-color: $primary-font-color;
         transition: all 0.5s ease-in-out;
 
-        @include screen-width-control(400px) {
+        @include screen-width-control(600px) {
             display: block;
         }
 

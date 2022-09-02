@@ -3,7 +3,7 @@
     flex: 1;
     width: calc(100vw - 300px);
 
-    @include screen-width-control(400px) {
+    @include screen-width-control(600px) {
         width: 100vw;
     }
 
@@ -68,7 +68,7 @@
             gap: 40px;
             margin-top: 60px;
 
-            @include screen-width-control(400px) {
+            @include screen-width-control(600px) {
                 flex-direction: column;
                 align-items: center;
             }
@@ -78,7 +78,7 @@
                 height: 400px;
                 position: relative;
                 
-                @include screen-width-control(400px) {
+                @include screen-width-control(600px) {
                     width: 90vw;
                     height: 90vw;
                 }
@@ -144,7 +144,7 @@
                 position: relative;
                 top: -90px;
 
-                @include screen-width-control(400px) {
+                @include screen-width-control(600px) {
                     top: 0;
                     gap: 0;
                 }

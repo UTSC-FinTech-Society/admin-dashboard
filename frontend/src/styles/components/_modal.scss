@@ -15,7 +15,7 @@
         background-color: white;
         width: 40%;
 
-        @include screen-width-control(400px) {
+        @include screen-width-control(600px) {
             width: 80%;
         }
 

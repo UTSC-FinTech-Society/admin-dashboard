@@ -20,7 +20,7 @@
             align-items: center;
             gap: 10px;
 
-            @include screen-width-control(400px) {
+            @include screen-width-control(600px) {
                 gap: 20px;
             }
     

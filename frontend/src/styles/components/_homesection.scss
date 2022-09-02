@@ -3,7 +3,7 @@
     flex: 1;
     width: calc(100vw - 300px);
 
-    @include screen-width-control(400px) {
+    @include screen-width-control(600px) {
         width: 100vw;
     }
 
@@ -36,7 +36,7 @@
             flex-direction: column;
             gap: 20px;
 
-            @include screen-width-control(400px) {
+            @include screen-width-control(600px) {
                 margin-bottom: 40px;
             }
 
@@ -44,6 +44,10 @@
                 display: flex;
                 gap: 20px;
                 flex-wrap: wrap;
+
+                @include screen-width-control(600px) {
+                    justify-content: center;
+                }
 
                 .new-member-stats-container {
                     width: 300px;
@@ -275,56 +279,67 @@
             }
 
             .admins-panel-container {
-                width: 250px;
-                background-color: white;
-                border-radius: 15px;
                 display: flex;
-                flex-direction: column;
-                gap: 20px;
-                box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
 
-                @include screen-width-control(400px) {
-                    width: 275px;
+                @include screen-width-control(600px) {
+                    justify-content: center;
                 }
 
-                .description {
-                    color: black;
-                    margin: 0;
-                    padding: 20px 20px 0 20px;
-                    font-size: 20px;
-                }
-
-                .admins-list {
-                    border-top: 1px solid lightgray;
-                    width: 100%;
-                    height: 300px;
-                    overflow-y: scroll;
-                    padding: 10px 10px 20px 20px;
+                .admin-panel {
+                    width: 250px;
+                    background-color: white;
+                    border-radius: 15px;
                     display: flex;
                     flex-direction: column;
-                    gap: 5px;
-                    position: relative;
+                    gap: 20px;
+                    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+
+                    @include screen-width-control(600px) {
+                        width: 300px;
+                    }
 
                     @include screen-width-control(400px) {
-                        padding: 10px 30px 20px 30px;
+                        width: 100%;
                     }
 
-                    @import './loading';
-
-                    &::-webkit-scrollbar {
-                        display: none;
-                    }
-
-                    @import "./admincard";
-
-                    .no-admin-text {
-                        position: relative;
-                        top: 40%;
+                    .description {
                         color: black;
+                        margin: 0;
+                        padding: 20px 20px 0 20px;
+                        font-size: 20px;
                     }
-                }
+
+                    .admins-list {
+                        border-top: 1px solid lightgray;
+                        width: 100%;
+                        height: 300px;
+                        overflow-y: scroll;
+                        padding: 10px 10px 20px 20px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        position: relative;
+
+                        @include screen-width-control(600px) {
+                            padding: 10px 30px 20px 30px;
+                        }
+
+                        @import './loading';
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+
+                        @import "./admincard";
+
+                        .no-admin-text {
+                            position: relative;
+                            top: 40%;
+                            color: black;
+                        }
+                    }
+                }                
             }
         }
-
     }
 }

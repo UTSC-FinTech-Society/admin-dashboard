@@ -135,9 +135,11 @@ const HomeSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<Re
                         </div>
                     </div>
                     <div className="admins-panel-container">
-                        <h3 className='description'>Other Admins</h3>
-                        <div className="admins-list">
-                            {!admin.isLoading ? admin.otherAdminsList.length > 0 ? admin.otherAdminsList.map(admin => <AdminCard key={admin.admin_id} {...admin} />) : <p className='no-admin-text'>There are no any admins yet...</p> : <Loading border='5px' size='30px' color='#040c43' />}
+                        <div className="admin-panel">
+                            <h3 className='description'>Other Admins</h3>
+                            <div className="admins-list">
+                                {!admin.isLoading ? admin.otherAdminsList.length > 0 ? admin.otherAdminsList.map(admin => <AdminCard key={admin.admin_id} {...admin} />) : <p className='no-admin-text'>There are no any admins yet...</p> : <Loading border='5px' size='30px' color='#040c43' />}
+                            </div>
                         </div>
                     </div>
                 </div>

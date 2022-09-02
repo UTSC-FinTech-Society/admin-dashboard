@@ -15,7 +15,7 @@
         background-color: white;
         width: 50%;
 
-        @include screen-width-control(400px) {
+        @include screen-width-control(600px) {
             width: 85%;
         }
 
@@ -79,7 +79,7 @@
                     border: 1px solid lightgray;
                     height: 400px;
 
-                    @include screen-width-control(400px) {
+                    @include screen-width-control(600px) {
                         padding: 0;
                     }
                 }
@@ -89,7 +89,7 @@
                     height: 295px;
                     overflow: auto;
                     
-                    @include screen-width-control(400px) {
+                    @include screen-width-control(600px) {
                         padding: 0 10px;
                         height: 230px;
                     }

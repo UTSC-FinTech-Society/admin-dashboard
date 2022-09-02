@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors({ origin: process.env.CLIENT_URLS?.split(','), credentials: true }));
 app.use(morgan('dev'));
 app.set('trust proxy', 1);
-app.use(session({ secret: process.env.SESSION_SECRET!, resave: true, saveUninitialized: true, cookie: { maxAge: 60 * 60 * 1000, sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', secure: process.env.NODE_ENV === 'production' }}));
+app.use(session({ secret: process.env.SESSION_SECRET!, resave: true, saveUninitialized: true, cookie: { maxAge: 60 * 60 * 1000, sameSite: 'lax', secure: false }}));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());

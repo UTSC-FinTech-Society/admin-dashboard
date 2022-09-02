@@ -4,7 +4,7 @@
     background-color: $primary-bg-color;
     transition: all 0.5s ease-in-out;
 
-    @include screen-width-control(400px) {
+    @include screen-width-control(600px) {
         position: fixed;
         left: -100%;
         top: 0;
@@ -18,14 +18,14 @@
         align-items: center;
         margin: 30px 10px;
 
-        @include screen-width-control(400px) {
+        @include screen-width-control(600px) {
             margin: 30px 20px 30px 10px;
         }
 
         .logo {
             width: 200px;
     
-            @include screen-width-control(400px) {
+            @include screen-width-control(600px) {
                 width: 150px;
             }
         }
@@ -39,7 +39,7 @@
             transform: rotate(45deg) translate(0, 2px);
             transition: all 0.5s ease-in-out;
 
-            @include screen-width-control(400px) {
+            @include screen-width-control(600px) {
                 display: block;
             }
 
@@ -75,7 +75,7 @@
                 border-radius: 50%;
                 object-fit: cover;
 
-                @include screen-width-control(400px) {
+                @include screen-width-control(600px) {
                     width: 80px;
                     height: 80px;
                 }
@@ -91,7 +91,7 @@
                 font-size: 18px;
                 margin-bottom: 5px;
 
-                @include screen-width-control(400px) {
+                @include screen-width-control(600px) {
                     font-size: 15px;
                 }
             }
@@ -101,7 +101,7 @@
                 color: #969696;
                 font-size: 15px;
 
-                @include screen-width-control(400px) {
+                @include screen-width-control(600px) {
                     font-size: 15px;
                 }
             }
@@ -128,7 +128,7 @@
                 color: $primary-font-color;
                 font-weight: normal;
 
-                @include screen-width-control(400px) {
+                @include screen-width-control(600px) {
                     font-size: 16px;
                 }
             }
