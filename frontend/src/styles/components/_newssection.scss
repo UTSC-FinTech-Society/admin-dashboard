@@ -69,6 +69,10 @@
             gap: 50px;
             position: relative;
 
+            @include screen-width-control(600px) {
+                align-items: center;
+            }
+
             @import './newscard';
 
             .no-news-text {
