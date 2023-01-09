@@ -11,7 +11,7 @@
 
     .home-section {
         height: calc(100vh - 75px);
-        padding: 10px 50px;
+        padding: 10px 65px 20px 65px;
         background-color: $primary-font-color;
         overflow-y: auto;
 
@@ -22,7 +22,7 @@
                 font-size: 30px;
                 color: black;
             }
-            
+
             h3 {
                 color: #969696;
                 margin-top: 5px;
@@ -45,12 +45,13 @@
                 gap: 20px;
                 flex-wrap: wrap;
 
-                @include screen-width-control(600px) {
+                @include screen-width-control(909px) {
                     justify-content: center;
                 }
 
                 .new-member-stats-container {
-                    width: 300px;
+                    width: 20.5vw;
+                    min-width: 250px;
                     height: 162px;
                     background-color: white;
                     border-radius: 15px;
@@ -61,22 +62,22 @@
                     padding: 15px 30px;
                     cursor: pointer;
                     position: relative;
-    
+
                     @import './loading';
-                    
+
                     .number-container {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
-    
+
                         .description-container {
-    
+
                             .description {
                                 font-size: 16px;
                                 color: $primary-bg-color;
                                 margin: 10px auto 5px auto;
                             }
-    
+
                             .number {
                                 font-size: 25px;
                                 color: black;
@@ -84,7 +85,7 @@
                                 margin: 10px auto 5px auto;
                             }
                         }
-    
+
                         .icon-container {
                             width: 50px;
                             height: 50px;
@@ -95,12 +96,12 @@
                             background-color: #0275d8;
                         }
                     }
-    
+
                     .stats-container {
                         display: flex;
                         align-items: center;
                         gap: 15px;
-    
+
                         .stats {
                             display: flex;
                             align-items: center;
@@ -108,7 +109,7 @@
                             padding: 5px 10px;
                             background-color: #c9f3c9;
                             border-radius: 5px;
-                            
+
                             p {
                                 margin: 0 auto;
                                 color: green;
@@ -116,7 +117,7 @@
                                 font-size: 12px;
                             }
                         }
-    
+
                         .description {
                             font-size: 12px;
                             color: gray;
@@ -127,7 +128,8 @@
             }
 
             .new-event-stats-container {
-                width: 300px;
+                width: 20.5vw;
+                min-width: 250px;
                 height: 162px;
                 background-color: white;
                 border-radius: 15px;
@@ -140,7 +142,7 @@
                 position: relative;
 
                 @import './loading';
-                
+
                 .number-container {
                     display: flex;
                     justify-content: space-between;
@@ -185,7 +187,7 @@
                         padding: 5px 10px;
                         background-color: #c9f3c9;
                         border-radius: 5px;
-                        
+
                         p {
                             margin: 0 auto;
                             color: green;
@@ -203,7 +205,8 @@
             }
 
             .latest-news-stats-container {
-                width: 300px;
+                width: 20.5vw;
+                min-width: 250px;
                 height: 162px;
                 background-color: white;
                 border-radius: 15px;
@@ -216,7 +219,7 @@
                 position: relative;
 
                 @import './loading';
-                
+
                 .number-container {
                     display: flex;
                     justify-content: space-between;
@@ -261,7 +264,7 @@
                         padding: 5px 10px;
                         background-color: #c9f3c9;
                         border-radius: 5px;
-                        
+
                         p {
                             margin: 0 auto;
                             color: green;
@@ -281,7 +284,7 @@
             .admins-panel-container {
                 display: flex;
 
-                @include screen-width-control(600px) {
+                @include screen-width-control(909px) {
                     justify-content: center;
                 }
 
@@ -338,7 +341,7 @@
                             color: black;
                         }
                     }
-                }                
+                }
             }
         }
     }

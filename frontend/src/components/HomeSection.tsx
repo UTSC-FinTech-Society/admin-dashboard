@@ -72,8 +72,8 @@ const HomeSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<Re
                                 <>
                                     <div className="number-container">
                                         <div className="description-container">
-                                            <h3 className='description'>New members</h3>
-                                            <p className='number'>{members.membersList.length > 0 ? calculate_no_of_new_members(members.membersList) : 0}</p>
+                                            <h3 className='description'>Total members</h3>
+                                            <p className='number'>{members.membersList.length > 0 ? members.membersList.length : 0}</p>
                                         </div>
                                         <div className="icon-container">
                                             <FiUsers size='25px' color='white' />
@@ -94,8 +94,8 @@ const HomeSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<Re
                                 <>
                                     <div className="number-container">
                                         <div className="description-container">
-                                            <h3 className='description'>New events</h3>
-                                            <p className='number'>{events.eventsList.length > 0 ? calculate_no_of_new_events(events.eventsList) : 0}</p>
+                                            <h3 className='description'>Total events</h3>
+                                            <p className='number'>{events.eventsList.length > 0 ? events.eventsList.length : 0}</p>
                                         </div>
                                         <div className="icon-container">
                                             <MdEvent size='28px' color='white' />
@@ -116,8 +116,8 @@ const HomeSection = ({ setOpenMenuState }: { setOpenMenuState: React.Dispatch<Re
                                 <>
                                     <div className="number-container">
                                         <div className="description-container">
-                                            <h3 className='description'>Latest news</h3>
-                                            <p className='number'>{news.newsList.length > 0 ? calculate_no_of_latest_news(news.newsList) : 0}</p>
+                                            <h3 className='description'>Total news</h3>
+                                            <p className='number'>{news.newsList.length > 0 ? news.newsList.length : 0}</p>
                                         </div>
                                         <div className="icon-container">
                                             <BiNews size='28px' color='white' />
