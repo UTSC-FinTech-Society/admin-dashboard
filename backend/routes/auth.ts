@@ -7,8 +7,12 @@ import isAuthenticated from "../middleware/auth";
 // Load Controllers
 import { loginAdmin, logoutAdmin } from "../controllers/auth";
 
-authRouter.post('/login', loginAdmin);
-
-authRouter.get('/logout', isAuthenticated, logoutAdmin);
+if (process.env.NODE_ENV === 'production') {
+    authRouter.post('/login', loginAdmin);
+    authRouter.get('/logout', isAuthenticated, logoutAdmin);
+} else {
+    authRouter.post('/login', loginAdmin);
+    authRouter.get('/logout', logoutAdmin);
+}
 
 export default authRouter;

@@ -12,10 +12,14 @@ const upload = multer({ storage: storage });
 // Load Controllers
 import { getMe, getAdmins, createNewAdmin, updateAdmin, deleteAdmin } from "../controllers/admins";
 
-adminsRouter.get('/me', isAuthenticated, getMe);
-
-adminsRouter.route('/').get(isAuthenticated, getAdmins).post(createNewAdmin);
-
-adminsRouter.route('/:admin_id').all(isAuthenticated).put(upload.single('profile_pic'), updateAdmin).delete(deleteAdmin);
+if (process.env.NODE_ENV === 'production') {
+    adminsRouter.get('/me', isAuthenticated, getMe);
+    adminsRouter.route('/').get(isAuthenticated, getAdmins).post(isAuthenticated, createNewAdmin);
+    adminsRouter.route('/:admin_id').all(isAuthenticated).put(upload.single('profile_pic'), updateAdmin).delete(deleteAdmin);
+} else {
+    adminsRouter.get('/me', getMe);
+    adminsRouter.route('/').get(getAdmins).post(createNewAdmin);
+    adminsRouter.route('/:admin_id').put(upload.single('profile_pic'), updateAdmin).delete(deleteAdmin);
+}
 
 export default adminsRouter;

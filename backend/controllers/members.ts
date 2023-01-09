@@ -1,6 +1,7 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
 import { sendError } from "../middleware/error";
+import sendEmail, { memberEmailTemplate } from "../utils/email";
 import Member from "../models/Member";
 
 const getMembers = asyncHandler(async (req: express.Request, res: express.Response) => {
@@ -9,19 +10,20 @@ const getMembers = asyncHandler(async (req: express.Request, res: express.Respon
 });
 
 const addNewMember = asyncHandler(async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    const { first_name, last_name, student_number, email_address, year_of_study, program, campus } = req.body as { first_name: string, last_name: string, student_number: number, email_address: string, year_of_study: string, program: string, campus: string }; 
+    const { first_name, last_name, student_number, email_address, year_of_study, program, campus } = req.body as { first_name: string, last_name: string, student_number: number, email_address: string, year_of_study: string, program: string, campus: string };
 
     if (!first_name || !last_name || !student_number || !email_address || !year_of_study || !program || !campus) {
         sendError(400, 'Please provide all necessary fields', next);
-    }
+    };
 
     const newMember = await Member.create({ first_name, last_name, student_number, email_address, year_of_study, program, campus, timestamp: new Date() });
+    sendEmail(email_address, '[UTSC FTS] Join Our Discord Server!', memberEmailTemplate(first_name));
     res.status(201).json({ success: true, message: 'A new member has been successfully added', member: newMember });
 });
 
 const updateMember = asyncHandler(async (req: express.Request, res: express.Response, next: express.NextFunction) => {
     const { member_id } = req.params;
-    const { first_name, last_name, student_number, email_address, year_of_study, program, campus } = req.body; 
+    const { first_name, last_name, student_number, email_address, year_of_study, program, campus } = req.body;
 
     const member = await Member.findByPk(member_id);
 
@@ -49,7 +51,7 @@ const deleteMember = asyncHandler(async (req: express.Request, res: express.Resp
 
     if (!member) {
         sendError(400, 'Member does not exist', next);
-    }   
+    }
 
     await member!.destroy();
 
