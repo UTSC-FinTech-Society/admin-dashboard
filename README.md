@@ -62,9 +62,15 @@ Designed and developed by our amazing developers in the Tech team :)
    npm run build
    ```
 
+   In case it pops up an error showing heap space is exceeded, run the below command before building project
+
+   ```bash
+   export NODE_OPTIONS="--max-old-space-size=8192"
+   ```
+
 4. Run the application using pm2
 
    ```bash
    cd backend
-   pm2 start server.ts
+   pm2 start server.ts --name admin-dashboard
    ```
