@@ -45,7 +45,7 @@ Designed and developed by our amazing developers in the Tech team :)
 1. SSH into the remote DigitalOcean server (Note: ask VP of Tech to add your ssh key to DigitalOcean if you haven't do so yet)
 
    ```bash
-   ssh utscfintech.ca
+   ssh root@utscfintech.ca
    ```
 
 2. Navigate to the admin dashboard repo and pull the latest main branch with git
@@ -53,4 +53,18 @@ Designed and developed by our amazing developers in the Tech team :)
    ```bash
    cd admin-dashboard
    git pull
+   ```
+
+3. Navigate to the frontend folder and build the project
+
+   ```bash
+   cd frontend
+   npm run build
+   ```
+
+4. Run the application using pm2
+
+   ```bash
+   cd backend
+   pm2 start server.ts
    ```
