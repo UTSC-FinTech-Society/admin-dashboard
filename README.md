@@ -34,11 +34,26 @@ Designed and developed by our amazing developers in the Tech team :)
    npm install
    ```
 
-4. Run the application locally and get to see all the amazing contents
+4. Build the project docker images and run the application locally in containers
 
    ```bash
-   npm run dev
+   docker compose up
    ```
+
+5. Create a user account in Postman for logging into the admin dashboard
+
+   ```bash
+   POST http://localhost:5001/api/admins
+
+   {
+      "username": USERNAME VALUE,
+      "password": PASSWORD VALUE,
+      "name": NAME VALUE,
+      "position": POSITION VALUE
+   }
+   ```
+
+6. Access http://localhost:4000 and login with the account info you have just created
 
 ## Deployment Guide
 

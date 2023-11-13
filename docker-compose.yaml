@@ -12,12 +12,12 @@ services:
     networks:
       - frontend-backend
     depends_on:
-      - fts-admin-dashboard-backend
+      - backend
   backend:
     image: fts-admin-dashboard-backend
     build: ./backend
     ports:
-      - 5000:5000
+      - 5001:5001
     volumes:
       - ./backend:/usr/src/app
     networks:
