@@ -83,7 +83,13 @@ Designed and developed by our amazing developers in the Tech team :)
    export NODE_OPTIONS="--max-old-space-size=8192"
    ```
 
-4. Run the application using pm2
+4. Delete the current running admin-dashboard service in pm2
+
+   ```bash
+   pm2 delete admin-dashboard
+   ```
+
+5. Run the application using pm2
 
    ```bash
    cd backend
