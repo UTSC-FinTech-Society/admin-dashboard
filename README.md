@@ -122,7 +122,19 @@ Designed and developed by our amazing developers in the Tech team :)
    npm install
    ```
 
-4. Navigate to the frontend folder and build the project
+4. Setup .env file for the project (only if stuffs in .env have changed, and ask VP of Tech for the .env files)
+
+   ```bash
+   cd frontend
+   nano .env
+   ```
+
+   ```bash
+   cd backend
+   nano .env
+   ```
+
+5. Navigate to the frontend folder and build the project
 
    ```bash
    cd frontend
@@ -135,13 +147,13 @@ Designed and developed by our amazing developers in the Tech team :)
    export NODE_OPTIONS="--max-old-space-size=8192"
    ```
 
-5. Delete the current running admin-dashboard service in pm2
+6. Delete the current running admin-dashboard service in pm2
 
    ```bash
    pm2 delete admin-dashboard
    ```
 
-6. Run the application using pm2
+7. Run the application using pm2
 
    ```bash
    cd backend
