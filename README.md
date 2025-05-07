@@ -63,7 +63,13 @@ Designed and developed by our amazing developers in the Tech team :)
 
 ## Deployment Guide
 
-0. Prerequisites (only need to do once when you are setting up with a new server)
+0. SSH into the remote DigitalOcean server (Note: ask VP of Tech to add your ssh key to DigitalOcean if you haven't do so yet)
+
+   ```bash
+   ssh root@utscfintech.ca
+   ```
+
+1. Prerequisites (only need to do once when you are setting up with a new server)
 
    - Install nodejs & npm
      ```bash
@@ -91,12 +97,6 @@ Designed and developed by our amazing developers in the Tech team :)
      sudo apt install nginx
      ```
    - Add swap space for production build: [link](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-22-04)
-
-1. SSH into the remote DigitalOcean server (Note: ask VP of Tech to add your ssh key to DigitalOcean if you haven't do so yet)
-
-   ```bash
-   ssh root@utscfintech.ca
-   ```
 
 2. Navigate to the admin dashboard repo and pull the latest main branch with git
 
