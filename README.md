@@ -104,8 +104,25 @@ Designed and developed by our amazing developers in the Tech team :)
    cd admin-dashboard
    git pull
    ```
+3. Install all the necessary dependencies with npm
 
-3. Navigate to the frontend folder and build the project
+   ```bash
+   npm install
+   ```
+
+   Then, navigate to both the frontend and backend folder to install dependencies
+
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+   ```bash
+   cd backend
+   npm install
+   ```
+
+4. Navigate to the frontend folder and build the project
 
    ```bash
    cd frontend
@@ -118,13 +135,13 @@ Designed and developed by our amazing developers in the Tech team :)
    export NODE_OPTIONS="--max-old-space-size=8192"
    ```
 
-4. Delete the current running admin-dashboard service in pm2
+5. Delete the current running admin-dashboard service in pm2
 
    ```bash
    pm2 delete admin-dashboard
    ```
 
-5. Run the application using pm2
+6. Run the application using pm2
 
    ```bash
    cd backend
