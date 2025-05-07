@@ -97,6 +97,7 @@ Designed and developed by our amazing developers in the Tech team :)
      sudo apt install nginx
      ```
    - Add swap space for production build: [link](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-22-04)
+   - Generate a SSL certicate with Let's Encrypt: [link](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-22-04)
 
 2. Navigate to the admin dashboard repo and pull the latest main branch with git
 
