@@ -70,9 +70,10 @@ Designed and developed by our amazing developers in the Tech team :)
      sudo apt install nodejs
      sudo apt install npm
      ```
-   - Install pm2 with npm
+   - Install pm2 & bun with npm
      ```bash
      npm install pm2 -g
+     npm install bun -g
      ```
    - Setup UFW firewall
      ```bash
