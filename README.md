@@ -63,33 +63,33 @@ Designed and developed by our amazing developers in the Tech team :)
 
 ## Deployment Guide
 
-Prerequisites (only need to do once when you are setting up with a new server)
+0. Prerequisites (only need to do once when you are setting up with a new server)
 
-- Install nodejs & npm
-  ```bash
-  sudo apt install nodejs
-  sudo apt install npm
-  ```
-- Install pm2 with npm
-  ```bash
-  npm install pm2 -g
-  ```
-- Setup UFW firewall
-  ```bash
-  sudo ufw enable
-  sudo ufw status
-  # (Port 22)
-  sudo ufw allow ssh
-  #(Port 80)
-  sudo ufw allow http 
-  #(Port 443)
-  sudo ufw allow https
-  ```
-- Install NGINX
-  ```bash
-  sudo apt install nginx
-  ```
-- Add swap space for production build: [link](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-22-04)
+   - Install nodejs & npm
+     ```bash
+     sudo apt install nodejs
+     sudo apt install npm
+     ```
+   - Install pm2 with npm
+     ```bash
+     npm install pm2 -g
+     ```
+   - Setup UFW firewall
+     ```bash
+     sudo ufw enable
+     sudo ufw status
+     # (Port 22)
+     sudo ufw allow ssh
+     #(Port 80)
+     sudo ufw allow http 
+     #(Port 443)
+     sudo ufw allow https
+     ```
+   - Install NGINX
+     ```bash
+     sudo apt install nginx
+     ```
+   - Add swap space for production build: [link](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-22-04)
 
 1. SSH into the remote DigitalOcean server (Note: ask VP of Tech to add your ssh key to DigitalOcean if you haven't do so yet)
 
