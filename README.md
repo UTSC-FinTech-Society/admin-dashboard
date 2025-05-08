@@ -92,9 +92,46 @@ Designed and developed by our amazing developers in the Tech team :)
      #(Port 443)
      sudo ufw allow https
      ```
-   - Install NGINX
+   - Configure NGINX
      ```bash
+     # Install NGINX
      sudo apt install nginx
+     ```
+
+     ```bash
+     # Configure config file
+     sudo nano /etc/nginx/sites-available/default
+
+     # Paste the following lines into the file
+     server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name utscfintech.ca www.utscfintech.ca;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location /admin {
+                proxy_pass http://localhost:5001;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+     }
+     ```
+
+     ```bash
+     # Test for errors and enable your new configuration
+     sudo nginx -t 
+     sudo systemctl restart nginx
      ```
    - Add swap space for production build: [link](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-22-04)
    - Generate a SSL certicate with Let's Encrypt: [link](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-22-04)
