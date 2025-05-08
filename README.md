@@ -117,8 +117,8 @@ Designed and developed by our amazing developers in the Tech team :)
                 try_files $uri $uri/ =404;
         }
 
-        location /admin {
-                proxy_pass http://localhost:5001;
+        location /admin/ {
+                proxy_pass http://localhost:5001/;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection 'upgrade';
